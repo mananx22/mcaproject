@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER ["Manan Sankhla"]
 ARG DEBIAN_FRONTEND=noninteractive
+RUN echo "nameserver 208.67.222.222" | sudo tee /etc/resolvconf/resolv.conf.d/base > /dev/null
 RUN apt-get update && apt-get install -y supervisor \
 openssh-server \
 apache2 \

@@ -31,11 +31,11 @@ services:
              environment:
               - PMA_ARBITRARY=1
         
-        linux:
-            build:
-             context: $PWD/Dockerfiles/linux/
-             dockerfile: Dockerfile       
-            ports:
-              - 81:8080
-              - 82:80      
+#         linux:
+#             build:
+#              context: $PWD/Dockerfiles/linux/
+#              dockerfile: Dockerfile       
+#             ports:
+#               - 81:8080
+#               - 82:80      
  

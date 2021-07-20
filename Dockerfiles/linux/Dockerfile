@@ -1,8 +1,8 @@
 FROM ubuntu:latest
 MAINTAINER ["Manan Sankhla"]
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt update 
-RUN apt install -y supervisor 
+RUN sudo apt update 
+RUN sudo apt install -y supervisor 
 # RUN apt-get update && apt-get install -y supervisor \
 # openssh-server \
 # apache2 \

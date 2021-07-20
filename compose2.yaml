@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+        wordpress: 
+            image: wordpress:latest            
+            ports:
+                - 80:80 
+            environment:
+                WORDPRESS_DB_HOST: db
+                WORDPRESS_DB_USER: admin
+                WORDPRESS_DB_PASSWORD: mananx22
+                WORDPRESS_DB_NAME: wordpress
+            volumes:
+                - $PWD/wordpress/:/var/www/html/
+                - $PWD/wordpress.ini:/usr/local/etc/php/conf.d/wordpress.ini  
+                
+        db:
+            image: mysql:5.7            
+            environment:
+                MYSQL_DATABASE: wordpress
+                MYSQL_USER: admin
+                MYSQL_PASSWORD: mananx22
+                MYSQL_ROOT_PASSWORD: 'manan'      
+            volumes:
+                - $PWD/mysql/:/var/lib/mysql/
+      
+        phpmyadmin:
+             image: phpmyadmin
+             ports:
+              - 9999:80
+             environment:
+              - PMA_ARBITRARY=1
+        
+        linux:
+            build:
+             context: $PWD/Dockerfiles/linux/
+             dockerfile: Dockerfile       
+            ports:
+              - 81:8080
+              - 82:80      
+ 

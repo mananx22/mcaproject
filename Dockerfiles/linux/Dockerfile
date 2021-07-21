@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER ["Manan Sankhla"]
 ARG DEBIAN_FRONTEND=noninteractive
-
+USER root
 RUN apt-get update
 RUN apt-get clean
 RUN apt-get install -y supervisor \
@@ -16,7 +16,6 @@ default-jre \
 apt-get clean \
 && \
 rm -rf /var/lib/apt/lists/*
-
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

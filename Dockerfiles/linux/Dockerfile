@@ -7,6 +7,7 @@ RUN apt-get clean
 RUN apt-get install -y supervisor \
 openssh-server \
 apache2 \
+openjdk-8-jdk \
 --no-install-recommends \
 # python3.5 \
 # python3-pip \

@@ -4,7 +4,7 @@ services:
         wordpress: 
             image: wordpress:latest            
             ports:
-                - 80:80 
+                - 9000:80 
             environment:
                 WORDPRESS_DB_HOST: db
                 WORDPRESS_DB_USER: admin
@@ -27,7 +27,7 @@ services:
         phpmyadmin:
              image: phpmyadmin
              ports:
-              - 9999:80
+              - 9001:80
              environment:
               - PMA_ARBITRARY=1
         
@@ -36,7 +36,7 @@ services:
              context: $PWD/Dockerfiles/linux/
              dockerfile: Dockerfile       
             ports:
-              - 81:8080
-              - 82:80 
-              - 83:22
+              - 9002:8080
+              - 9003:80 
+              - 9004:22
  

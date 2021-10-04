@@ -11,8 +11,8 @@ services:
                 WORDPRESS_DB_PASSWORD: mananx22
                 WORDPRESS_DB_NAME: wordpress
             volumes:
-                - $PWD/wordpress/:/var/www/html/
-                - $PWD/wordpress.ini:/usr/local/etc/php/conf.d/wordpress.ini  
+                - ./wordpress/:/var/www/html/
+                - ./wordpress.ini:/usr/local/etc/php/conf.d/wordpress.ini  
                 
         db:
             image: mysql:5.7            
@@ -22,7 +22,7 @@ services:
                 MYSQL_PASSWORD: mananx22
                 MYSQL_ROOT_PASSWORD: 'manan'      
             volumes:
-                - $PWD/mysql/:/var/lib/mysql/
+                - ./mysql/:/var/lib/mysql/
       
         phpmyadmin:
              image: phpmyadmin
@@ -33,10 +33,10 @@ services:
         
         linux:
             build:
-             context: $PWD/Dockerfiles/linux/
+             context: ./Dockerfiles/linux/
              dockerfile: Dockerfile       
             ports:
               - 9002:8080
               - 9003:80 
-              - 9004:22
+              
  
